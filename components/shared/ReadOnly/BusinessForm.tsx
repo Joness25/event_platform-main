@@ -36,8 +36,8 @@ import { ConfirmButton } from "../checkouts/business/ConfirmButton";
 type EventFormProps = {
   userId: string;
   type: "Create" | "Update";
-  businessAd?: IBusinessAd;
-  businessAdId?: string;
+  businessAd: IBusinessAd;
+  businessAdId: string;
 };
 
 //event - businessAd

@@ -32,8 +32,7 @@ export const businessFormSchema = z.object({
   email: z.string().email("Invalid email format"),
   orderAwarderName: z
     .string()
-    .min(3, "Order Awarder's Name must be at least 3 characters")
-    .optional(),
+    .min(3, "Order Awarder's Name must be at least 3 characters"),
   designation: z.string().min(3, "Designation must be at least 3 characters"),
   // logo: z.array(z.string()).optional(), // Array of logo URLs, optional
   website: z.string().url().optional(), // Optional website URL
