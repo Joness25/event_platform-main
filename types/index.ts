@@ -65,7 +65,7 @@ export type UpdateNgoParams = {
 export type CreateNgoProfileParams = {
   userId: string;
   ngoProfile: {
-    description?: string; // Array of illustration URLs
+    description: string; // Array of illustration URLs
     priceId: string;
     imageUrl?: string;
     name: string;
@@ -88,7 +88,7 @@ export type UpdateNgoProfileParams = {
   userId: string;
   ngoProfile: {
     _id: string;
-    description?: string; // Array of illustration URLs
+    description: string; // Array of illustration URLs
     priceId: string;
     imageUrl?: string;
     name: string;

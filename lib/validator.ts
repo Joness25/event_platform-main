@@ -36,10 +36,7 @@ export const businessFormSchema = z.object({
   designation: z.string().min(3, "Designation must be at least 3 characters"),
   // logo: z.array(z.string()).optional(), // Array of logo URLs, optional
   website: z.string().url().optional(), // Optional website URL
-  description: z
-    .string()
-    .min(3, "Description must be at least 3 characters")
-    .optional(), // Description of the business
+  description: z.string().min(3, "Description must be at least 3 characters"),
   imageUrl: z.string().optional(), // Array of image URLs
   // categoryId: z.string(),
   priceId: z.string(),
@@ -80,10 +77,7 @@ export const ngosBasicFormSchema = z.object({
 });
 
 export const ngosProfileFormSchema = z.object({
-  description: z
-    .string()
-    .min(3, "Text must be at least 3 characters")
-    .optional(),
+  description: z.string().min(3, "Text must be at least 3 characters"),
   priceId: z.string(),
   imageUrl: z.string().optional(), // Array of image URLs
   // For Ngo
