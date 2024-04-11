@@ -1,5 +1,4 @@
 import { auth } from "@clerk/nextjs";
-import BusinessForm from "@/components/shared/BusinessForm";
 import BusinessPricingForm from "@/components/shared/priceForms/BusinessPrices";
 import NgoPricingForm from "@/components/shared/priceForms/NgoPricing";
 
