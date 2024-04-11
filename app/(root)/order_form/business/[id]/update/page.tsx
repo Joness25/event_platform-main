@@ -30,7 +30,6 @@ const updateBusinessAd = async ({ params: { id } }: UpdateBusinessADProps) => {
           businessAd={businessAd}
           businessAdId={businessAd._id}
         />
-        <ConfirmButton
       </div>
     </>
   );
