@@ -22,8 +22,8 @@ import { Input } from "../ui/input"
 import { createCategory, getAllCategories } from "@/lib/actions/category.actions"
 
 type DropdownProps = {
-  value?: string
-  onChangeHandler?: () => void
+  value?: string //optional
+  onChangeHandler?: () => void  //optional and is a function that returns nothing
 }
 
 const Dropdown = ({ value, onChangeHandler }: DropdownProps) => {
