@@ -380,7 +380,7 @@ const BusinessForm = ({
               <FormItem className="w-full">
                 <FormControl className="h-72">
                   <Image
-                    src={field.value}
+                    src={field.value!}
                     alt="Uploaded Image"
                     width={250}
                     height={250}

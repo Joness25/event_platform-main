@@ -365,7 +365,7 @@ const BusinessForm = ({
                 <FormControl className="h-72">
                   <FileUploader
                     onFieldChange={field.onChange}
-                    imageUrl={field.value}
+                    imageUrl={field.value!}
                     setFiles={setFiles}
                   />
                 </FormControl>
