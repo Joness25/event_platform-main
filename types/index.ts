@@ -322,19 +322,27 @@ export type CheckoutOrderParams = {
 };
 
 export type CheckoutBusinessOrderParams = {
+  title: string;
   companyName: string;
   businessAdId: string;
   price: string;
+  product: string;
+  description: string;
   isFree: boolean;
   buyerId: string;
+  databaseType: string;
 };
 
 export type CheckoutNgoOrderParams = {
+  title: string;
   name: string;
   ngoProfileId: string;
   price: string;
+  product: string;
+  description: string;
   isFree: boolean;
   buyerId: string;
+  databaseType: string;
 };
 
 export type CreateOrderParams = {
@@ -347,18 +355,18 @@ export type CreateOrderParams = {
 
 export type CreateBusinessOrderParams = {
   stripeId: string;
-  businessAdId: string;
-  buyerId: string;
   totalAmount: string;
   createdAt: Date;
+  businessAdId: string;
+  buyerId: string;
 };
 
 export type CreateNgoProfileOrderParams = {
   stripeId: string;
-  ngoProfileId: string;
-  buyerId: string;
   totalAmount: string;
   createdAt: Date;
+  ngoProfileId: string;
+  buyerId: string;
 };
 
 export type GetOrdersByEventParams = {

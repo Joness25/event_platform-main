@@ -2,6 +2,7 @@ import { Document, Schema, model, models } from "mongoose";
 
 export interface IBusinessAd extends Document {
   _id: string;
+  title: string;
   companyName: string;
   clientsName: string;
   telephoneNumber: string;
@@ -30,6 +31,7 @@ export interface IBusinessAd extends Document {
 }
 
 const BusinessAdSchema = new Schema({
+  title: { type: String },
   clientsName: { type: String, required: true },
   companyName: { type: String, required: true },
   telephoneNumber: { type: String, required: true },

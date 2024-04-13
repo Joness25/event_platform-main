@@ -3,6 +3,7 @@ import { Document, Schema, model, models } from "mongoose";
 //so that we know in the frontend what our database has
 export interface INGO extends Document {
   _id: string; //is automatically
+  title: string;
   name: string;
   physicalAddress: string;
   postalAddress: string;
@@ -17,8 +18,8 @@ export interface INGO extends Document {
   category: { _id: string; name: string };
   organizer: { _id: string; firstName: string; lastName: string };
 }
-
 const NGOSchema = new Schema({
+  title: { type: String },
   name: { type: String, required: true }, //name of organization
   physicalAddress: { type: String, required: true },
   postalAddress: { type: String, required: true },

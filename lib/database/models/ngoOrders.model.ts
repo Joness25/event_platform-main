@@ -1,12 +1,13 @@
 import { Schema, model, models, Document } from "mongoose";
 
-export interface IBusinessOrder extends Document {
+export interface INgoProfileOrder extends Document {
   createdAt: Date;
   stripeId: string;
   totalAmount: string;
-  companyName: {
+  ngoProfile: {
+    //from event to businessAd
     _id: string;
-    companyName: string;
+    title: string;
   };
   buyer: {
     _id: string;
@@ -15,16 +16,15 @@ export interface IBusinessOrder extends Document {
   };
 }
 
-export type INgoOrderItem = {
+export type INgoProfileOrderItem = {
   _id: string;
   totalAmount: string;
   createdAt: Date;
-  companyName: string;
   ngoProfileId: string;
-  buyer: string;
+  buyerId: string;
 };
 
-const NgoOrderSchema = new Schema({
+const NgoProfileOrderSchema = new Schema({
   createdAt: {
     type: Date,
     default: Date.now,
@@ -47,6 +47,9 @@ const NgoOrderSchema = new Schema({
   },
 });
 
-const NgoOrder = models.NgoOrder || model("NgoOrder", NgoOrderSchema);
+const NgoProfileOrder =
+  models.NgoProfileOrder || model("NgoProfileOrder", NgoProfileOrderSchema);
 
-export default NgoOrder;
+export default NgoProfileOrder;
+// BusinessOrder
+// NgoProfileOrder

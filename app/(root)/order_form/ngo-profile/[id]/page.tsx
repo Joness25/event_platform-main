@@ -2,6 +2,7 @@ import { auth } from "@clerk/nextjs";
 import { getBusinessAdById } from "@/lib/actions/business.actions";
 import NgoProfileForm from "@/components/shared/ReadOnly/NgoProfileForm";
 import { getNgoProfileById } from "@/lib/actions/NgoProfile.actions";
+import Checkout from "@/components/shared/checkouts/ngo_profiles/Checkout";
 
 type UpdateNgoProfileProps = {
   params: {
@@ -25,12 +26,13 @@ const updateNgoProfile = async ({ params: { id } }: UpdateNgoProfileProps) => {
 
       <div className="wrapper my-8">
         {/* we pass the id of the user from clerk */}
-        <NgoProfileForm
+        {/* <NgoProfileForm
           userId={userId}
           type="Update"
           ngoProfile={ngoProfile}
           ngoProfileId={ngoProfile._id}
-        />
+        /> */}
+        <Checkout ngoProfile={ngoProfile} userId={userId} />
       </div>
     </>
   );

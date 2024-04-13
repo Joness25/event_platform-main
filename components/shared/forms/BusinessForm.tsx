@@ -145,6 +145,30 @@ const BusinessForm = ({
               </FormItem>
             )}
           />
+
+          <FormField
+            control={form.control}
+            name="companyName"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormLabel>
+                  Company Name
+                  <span className=" text-red-500">*</span>
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="Company's Name"
+                    {...field}
+                    className=" input-field"
+                  />
+                </FormControl>
+                <FormDescription>
+                  This is your public display name.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
         </div>
         <div className=" flex flex-col gap-5 md:flex-row">
           <FormField

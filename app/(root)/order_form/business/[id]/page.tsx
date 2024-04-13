@@ -1,7 +1,6 @@
 import { auth } from "@clerk/nextjs";
 import { getBusinessAdById } from "@/lib/actions/business.actions";
-import BusinessForm from "@/components/shared/ReadOnly/BusinessForm";
-import { ConfirmButton } from "@/components/shared/checkouts/business/ConfirmButton";
+import Checkout from "@/components/shared/checkouts/business/checkout";
 
 type UpdateBusinessADProps = {
   params: {
@@ -14,6 +13,7 @@ const updateBusinessAd = async ({ params: { id } }: UpdateBusinessADProps) => {
 
   const userId = sessionClaims?.userId as string;
   const businessAd = await getBusinessAdById(id);
+  // console.log(businessAd);
 
   return (
     <>
@@ -25,14 +25,13 @@ const updateBusinessAd = async ({ params: { id } }: UpdateBusinessADProps) => {
 
       <div className="wrapper my-8">
         {/* we pass the id of the user from clerk */}
-        <BusinessForm
+        {/* <BusinessForm
           userId={userId}
           type="Update"
           businessAd={businessAd}
           businessAdId={businessAd._id}
-        />
-
-        <ConfirmButton businessAd={businessAd} userId={userId} />
+        /> */}
+        <Checkout businessAd={businessAd} userId={userId} />
       </div>
     </>
   );

@@ -2,7 +2,9 @@
 
 import Stripe from "stripe";
 import {
+  CheckoutBusinessOrderParams,
   CheckoutOrderParams,
+  CreateBusinessOrderParams,
   CreateOrderParams,
   GetOrdersByEventParams,
   GetOrdersByUserParams,
@@ -14,12 +16,17 @@ import Order from "../database/models/order.model";
 import Event from "../database/models/event.model";
 import { ObjectId } from "mongodb";
 import User from "../database/models/user.model";
+import BusinessOrder from "../database/models/businessOrder.model";
+// CheckoutBusinessOrderParams
+// CheckoutNgoOrderParams
 
-export const checkoutOrder = async (order: CheckoutOrderParams) => {
+export const checkoutBusinessOrder = async (
+  order: CheckoutBusinessOrderParams
+) => {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
   const price = order.isFree ? 0 : Number(order.price) * 100;
-
+  console.log(price);
   try {
     const session = await stripe.checkout.sessions.create({
       line_items: [
@@ -28,15 +35,18 @@ export const checkoutOrder = async (order: CheckoutOrderParams) => {
             currency: "usd",
             unit_amount: price,
             product_data: {
-              name: order.eventTitle,
+              name: order.product,
+              description: order.description,
             },
           },
           quantity: 1,
         },
       ],
       metadata: {
-        eventId: order.eventId,
+        product: order.product,
+        businessAdId: order.businessAdId,
         buyerId: order.buyerId,
+        databaseType: "BusinessOrder",
       },
       mode: "payment",
       success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/profile`,
@@ -49,16 +59,16 @@ export const checkoutOrder = async (order: CheckoutOrderParams) => {
   }
 };
 
-export const createOrder = async (order: CreateOrderParams) => {
+export const createBusinessOrder = async (order: CreateBusinessOrderParams) => {
   try {
     await connectToDatabase();
 
-    const newOrder = await Order.create({
+    const newOrder = await BusinessOrder.create({
       ...order,
-      event: order.eventId,
+      businessAd: order.businessAdId,
       buyer: order.buyerId,
     });
-
+    console.log(newOrder);
     return JSON.parse(JSON.stringify(newOrder));
   } catch (error) {
     handleError(error);

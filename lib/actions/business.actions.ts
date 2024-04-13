@@ -37,7 +37,7 @@ const populateBusinessAd = (query: any) => {
     .populate({
       path: "price",
       model: PricingBusiness,
-      select: "_id pageType priceId priceInKsh ",
+      select: "_id pageType priceInUsd priceInKsh description productNumber ",
     });
 };
 
@@ -54,6 +54,7 @@ export async function createBusinessAD({
 
     const newEvent = await BusinessAd.create({
       ...businessAd,
+      title: "Business Advertisement Information",
       price: businessAd.priceId,
       organizer: userId,
     });

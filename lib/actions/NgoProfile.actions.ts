@@ -44,7 +44,7 @@ const populateNgoProfile = (query: any) => {
     .populate({
       path: "price",
       model: PricingNgo,
-      select: "_id pageType priceId priceInKsh ",
+      select: "_id pageType priceInUsd priceInKsh description productNumber ",
     });
 };
 
@@ -61,6 +61,7 @@ export async function createNgoProfile({
 
     const newEvent = await NgoProfile.create({
       ...ngoProfile,
+      title: "Ngo Profile Information",
       price: ngoProfile.priceId,
       organizer: userId,
     });

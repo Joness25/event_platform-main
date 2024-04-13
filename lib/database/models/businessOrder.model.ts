@@ -5,8 +5,9 @@ export interface IBusinessOrder extends Document {
   stripeId: string;
   totalAmount: string;
   businessAd: {
+    //from event to businessAd
     _id: string;
-    companyName: string;
+    title: string;
   };
   buyer: {
     _id: string;
@@ -15,13 +16,12 @@ export interface IBusinessOrder extends Document {
   };
 }
 
-export type IBusinessOrderItem = {
+export type IBusinesssOrderItem = {
   _id: string;
   totalAmount: string;
   createdAt: Date;
-  companyName: string;
   businessAdId: string;
-  buyer: string;
+  buyerId: string;
 };
 
 const BusinessOrderSchema = new Schema({

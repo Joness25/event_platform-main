@@ -35,6 +35,7 @@ export async function createNgo({ userId, ngo, path }: CreateNgoParams) {
 
     const newNgo = await Ngo.create({
       ...ngo,
+      title: "Ngo basic information",
       category: ngo.categoryId,
       organizer: userId,
     });
