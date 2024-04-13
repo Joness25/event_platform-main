@@ -2,6 +2,7 @@
 
 import React, { useEffect } from "react";
 import { useUser } from "@clerk/nextjs";
+import { IBusinessAd } from "@/lib/database/models/businessad.model";
 import { useTransition } from "react";
 import { usePathname } from "next/navigation";
 import { loadStripe } from "@stripe/stripe-js";
@@ -20,17 +21,14 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { IProfile } from "@/lib/database/models/ngoprofile.model";
-import { checkoutNgoProfileOrder } from "@/lib/actions/NgoOrders.actions";
-import { formatPrice } from "@/lib/utils";
 
-loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!); //add an exclamation if it is not there yet
+loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
 export function ConfirmButton({
-  ngoProfile,
+  businessAd,
   userId,
 }: {
-  ngoProfile: IProfile;
+  businessAd: IBusinessAd;
   userId: string;
 }) {
   useEffect(() => {
@@ -47,31 +45,16 @@ export function ConfirmButton({
     }
   }, []);
 
-  // export type CheckoutBusinessOrderParams = {
-  //   companyName: string;
-  //   businessAdId: string;
-  //   price: string;
-  //   isFree: boolean;
-  //   buyerId: string;
-  // };
-
-  // export type CheckoutNgoOrderParams = {
-  //   name: string;
-  //   ngoProfileId: string;
-  //   price: string;
-  //   isFree: boolean;
-  //   buyerId: string;
-  // };
   const onCheckout = async () => {
     const order = {
-      name: ngoProfile.name,
-      ngoProfileId: ngoProfile._id,
-      price: formatPrice(ngoProfile.price.priceInUsd),
-      isFree: ngoProfile.isFree,
+      eventTitle: businessAd.price.pageType,
+      eventId: businessAd._id,
+      price: businessAd.price.priceInUsd,
+      isFree: businessAd.isFree,
       buyerId: userId,
     };
 
-    await checkoutNgoProfileOrder(order);
+    await checkoutOrder(order);
   };
 
   return (
@@ -122,7 +105,7 @@ export function ConfirmButton({
               size="lg"
               className="button sm:w-fit"
             >
-              {ngoProfile.isFree ? "Get Ticket" : "Buy Ticket"}
+              {businessAd.isFree ? "Get Ticket" : "Buy Ticket"}
             </Button>
           </form>
         </DialogFooter>
