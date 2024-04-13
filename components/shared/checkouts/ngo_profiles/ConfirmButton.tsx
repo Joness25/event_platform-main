@@ -21,14 +21,15 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { IProfile } from "@/lib/database/models/ngoprofile.model";
 
 loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
 export function ConfirmButton({
-  businessAd,
+  ngoProfile,
   userId,
 }: {
-  businessAd: IBusinessAd;
+  ngoProfile: IProfile;
   userId: string;
 }) {
   useEffect(() => {
@@ -47,10 +48,10 @@ export function ConfirmButton({
 
   const onCheckout = async () => {
     const order = {
-      eventTitle: businessAd.price.pageType,
-      eventId: businessAd._id,
-      price: businessAd.price.priceInUsd,
-      isFree: businessAd.isFree,
+      eventTitle: ngoProfile.price.pageType,
+      eventId: ngoProfile._id,
+      price: ngoProfile.price.priceInUsd,
+      isFree: ngoProfile.isFree,
       buyerId: userId,
     };
 
@@ -105,7 +106,7 @@ export function ConfirmButton({
               size="lg"
               className="button sm:w-fit"
             >
-              {businessAd.isFree ? "Get Ticket" : "Buy Ticket"}
+              {ngoProfile.isFree ? "Get Ticket" : "Buy Ticket"}
             </Button>
           </form>
         </DialogFooter>
