@@ -22,6 +22,7 @@
     "@stripe/stripe-js": "^2.2.1",
     "@types/mongoose": "^5.11.97",
     "@uploadthing/react": "^6.0.2",
+    "aws4": "^1.12.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "framer-motion": "^11.0.28",
