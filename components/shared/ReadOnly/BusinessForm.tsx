@@ -18,7 +18,7 @@ import { businessFormSchema } from "@/lib/validator";
 import * as z from "zod";
 import { businessFormDefaultValues } from "@/constants";
 import { Textarea } from "@/components/ui/textarea";
-import { FileUploader } from "../FileUploader";
+import  FileUploader  from "../FileUploader";
 import { useState } from "react";
 import { useUploadThing } from "@/lib/uploadthing";
 
