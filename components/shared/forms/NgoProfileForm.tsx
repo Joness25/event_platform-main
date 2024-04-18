@@ -653,7 +653,6 @@ import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import NgoForm from "./NgoForm";
 import NgoDropdown from "./NgoDropdown";
-import ImageForm from "./ImageForm";
 
 type NgoProfileFormProps = {
   userId: string;
@@ -1232,13 +1231,7 @@ const NgoProfileForm = ({
         transition={{
           ease: "easeInOut",
         }}
-      >
-        <ImageForm
-          ngoProfileIdState={ngoProfileIdState}
-          userId={userId}
-          type="Create"
-        />
-      </motion.div>
+      ></motion.div>
     </div>
   );
 };
