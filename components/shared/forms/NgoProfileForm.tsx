@@ -736,10 +736,6 @@ const NgoProfileForm = ({
 
         if (updatedNgoProfile) {
           form.reset();
-          if (!ngoProfileIdState) {
-            // // Only update ngoProfileIdState if it's not already set
-            setNgoProfileIdState(updatedNgoProfile._id!);
-          }
           // router.push(`/order_form/ngo-profile/${updatedNgoProfile._id}`);
         }
       } catch (error) {
