@@ -671,11 +671,6 @@ const NgoProfileForm = ({
   ngoProfile,
   ngoProfileId,
 }: NgoProfileFormProps) => {
-  const [formStep, setFormStep] = useState<number>(0);
-  const [ngoProfileIdState, setNgoProfileIdState] = useState<string | null>(
-    null
-  );
-
   const [files, setFiles] = useState<File[]>([]);
   const initialValues =
     ngoProfile && type === "Update"
@@ -715,11 +710,6 @@ const NgoProfileForm = ({
 
         if (newNgoProfile) {
           form.reset();
-          setFormStep(1);
-          if (!ngoProfileIdState) {
-            // // Only update ngoProfileIdState if it's not already set
-            setNgoProfileIdState(newNgoProfile._id!);
-          }
           // router.push(`/order_form/ngo-profile/${newNgoProfile._id}`);
         }
       } catch (error) {
@@ -774,9 +764,11 @@ const NgoProfileForm = ({
             })}
             // formStep == 0 -> translateX == 0
             // formStep == 1 -> translateX == '-100%'
-            animate={{
-              translateX: `-${formStep * 100}%`,
-            }}
+            animate={
+              {
+                // translateX: `-${formStep * 100}%`,
+              }
+            }
             transition={{
               ease: "easeInOut",
             }}
@@ -1177,7 +1169,7 @@ const NgoProfileForm = ({
             size="lg"
             disabled={form.formState.isSubmitting}
             className={cn("button col-span-2 w-full", {
-              hidden: formStep == 1,
+              // hidden: formStep == 1,
             })}
           >
             {form.formState.isSubmitting ? "Submitting..." : `${type} Event `}
@@ -1215,10 +1207,10 @@ const NgoProfileForm = ({
             type="button"
             variant={"ghost"}
             onClick={() => {
-              setFormStep(0);
+              // setFormStep(0);
             }}
             className={cn({
-              hidden: formStep == 0,
+              // hidden: formStep == 0,
             })}
           >
             Go Back
@@ -1231,12 +1223,16 @@ const NgoProfileForm = ({
         })}
         // formStep == 0 -> translateX == 100%
         // formStep == 1 -> translateX == 0
-        animate={{
-          translateX: `${100 - formStep * 100}%`,
-        }}
-        style={{
-          translateX: `${100 - formStep * 100}%`,
-        }}
+        animate={
+          {
+            // translateX: `${100 - formStep * 100}%`,
+          }
+        }
+        style={
+          {
+            // translateX: `${100 - formStep * 100}%`,
+          }
+        }
         transition={{
           ease: "easeInOut",
         }}
