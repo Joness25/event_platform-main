@@ -57,6 +57,7 @@ export async function createBusinessAD({
       title: "Business Advertisement Information",
       price: businessAd.priceId,
       organizer: userId,
+      images: [],
     });
     revalidatePath(path);
 

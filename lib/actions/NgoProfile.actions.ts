@@ -59,7 +59,7 @@ export async function createNgoProfile({
     const organizer = await User.findById(userId);
     if (!organizer) throw new Error("Organizer not found");
 
-    const newEvent = await NgoProfile.create({
+    const newtEvent = await NgoProfile.create({
       ...ngoProfile,
       title: "Ngo Profile Information",
       price: ngoProfile.priceId,
@@ -67,7 +67,7 @@ export async function createNgoProfile({
     });
     revalidatePath(path);
 
-    return JSON.parse(JSON.stringify(newEvent));
+    return JSON.parse(JSON.stringify(newtEvent));
   } catch (error) {
     handleError(error);
   }

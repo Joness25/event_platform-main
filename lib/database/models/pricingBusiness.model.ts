@@ -18,7 +18,7 @@ const PricingBusinessSchema = new Schema({
 });
 
 const PricingBusiness =
-  models.PricingBusiness ||
+  models?.PricingBusiness ||
   model<IPricingBusiness>("PricingBusiness", PricingBusinessSchema);
 
 export default PricingBusiness;

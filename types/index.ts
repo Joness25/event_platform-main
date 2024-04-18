@@ -68,6 +68,30 @@ export type CreateNgoProfileParams = {
     description: string; // Array of illustration URLs
     priceId: string;
     imageUrl?: string;
+    imageTitle?: string;
+    name: string;
+    physicalAddress: string;
+    postalAddress: string;
+    telephoneNumber: string;
+    faxNumber?: string;
+    categoryId: string;
+    email: string;
+    website?: string;
+    contactPersonName: string;
+    contactPersonTitle: string;
+    createdAtt: Date;
+    isFree: boolean;
+  };
+  path: string;
+};
+export type UpdateNgoProfileParams = {
+  userId: string;
+  ngoProfile: {
+    _id: string;
+    description: string; // Array of illustration URLs
+    priceId: string;
+    imageUrl?: string;
+    imageTitle?: string;
     name: string;
     physicalAddress: string;
     postalAddress: string;
@@ -84,27 +108,44 @@ export type CreateNgoProfileParams = {
   path: string;
 };
 
-export type UpdateNgoProfileParams = {
+//CREATE NGO IMAGE URL PARAMS
+export type CreateNgoImageUrlParams = {
   userId: string;
-  ngoProfile: {
-    _id: string;
-    description: string; // Array of illustration URLs
-    priceId: string;
+  ngoProfileId: string;
+  formValues: {
+    title?: string;
     imageUrl?: string;
-    name: string;
-    physicalAddress: string;
-    postalAddress: string;
-    telephoneNumber: string;
-    faxNumber?: string;
-    categoryId: string;
-    email: string;
-    website?: string;
-    contactPersonName: string;
-    contactPersonTitle: string;
-    createdAtt: Date;
-    isFree: boolean;
   };
-  path: string;
+};
+
+export type UpdateNgoImageUrlParams = {
+  userId: string;
+  ngoProfileId: string;
+  formValues: {
+    _id: string;
+    title?: string;
+    imageUrl?: string;
+  };
+};
+
+// CREATE BUSINESS IMAGE URL PARAMS
+export type CreateBusinessImageUrlParams = {
+  userId: string;
+  businessAdId: string;
+  formValues: {
+    title?: string;
+    imageUrl?: string;
+  };
+};
+
+export type UpdateNgoBusinessUrlParams = {
+  userId: string;
+  businessAdId: string;
+  formValues: {
+    _id: string;
+    title?: string;
+    imageUrl?: string;
+  };
 };
 
 //CREATE PRICING PARAMS
@@ -145,6 +186,7 @@ export type CreateBusinessADParams = {
     priceId: string;
     description: string; // Array of illustration URLs
     imageUrl?: string;
+    imageTitle?: string;
     createdAtt: Date;
     isFree: boolean;
   };
@@ -310,6 +352,17 @@ export type Event = {
 // ====== CATEGORY PARAMS
 export type CreateCategoryParams = {
   categoryName: string;
+};
+// =========ImageForm
+export type CreateBusinessImageParams = {
+  title?: string;
+  imageUrl?: string;
+  businessAd: string;
+};
+export type CreateNgoImageParams = {
+  title?: string;
+  imageUrl?: string;
+  ngoProfile: string;
 };
 
 // ====== ORDER PARAMS

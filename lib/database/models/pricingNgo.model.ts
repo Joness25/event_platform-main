@@ -15,7 +15,7 @@ const PricingNgoSchema = new Schema({
   description: { type: String, required: true },
 });
 
-const PricingNgo = models.PricingNgo || model("PricingNgo", PricingNgoSchema);
+const PricingNgo = models?.PricingNgo || model("PricingNgo", PricingNgoSchema);
 
 export default PricingNgo;
 

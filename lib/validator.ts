@@ -38,13 +38,10 @@ export const businessFormSchema = z.object({
   website: z.string().url().optional(), // Optional website URL
   description: z.string().min(3, "Description must be at least 3 characters"),
   imageUrl: z.string().optional(), // Array of image URLs
-  // categoryId: z.string(),
-  priceId: z.string(),
-  // logo: z.string().optional(), // Optional array of logo URLs
+  imageTitle: z.string().optional(), //image title
+  priceId: z.string().min(3, "Page number/size is required "),
   createdAtt: z.date(),
   isFree: z.boolean(),
-  // price: z.string().optional(), // Optional price
-  // isFree: z.boolean().default(false), // Default to false for isFree
 });
 
 export const ngosBasicFormSchema = z.object({
@@ -71,15 +68,16 @@ export const ngosBasicFormSchema = z.object({
   contactPersonTitle: z
     .string()
     .min(3, "Contact Person's Title must be at least 3 characters"),
-  categoryId: z.string(),
+  categoryId: z.string().min(1, "Price ID is required"), // Add default value and validation message,
   createdAtt: z.date(),
   isFree: z.boolean(),
 });
 
 export const ngosProfileFormSchema = z.object({
   description: z.string().min(3, "Text must be at least 3 characters"),
-  priceId: z.string(),
+  priceId: z.string().min(1, "Page number/size is required "),
   imageUrl: z.string().optional(), // Array of image URLs
+  imageTitle: z.string().optional(), //image title
   // For Ngo
   name: z.string().min(3, "Name must be at least 3 characters"),
   physicalAddress: z
@@ -104,7 +102,7 @@ export const ngosProfileFormSchema = z.object({
   contactPersonTitle: z
     .string()
     .min(3, "Contact Person's Title must be at least 3 characters"),
-  categoryId: z.string(),
+  categoryId: z.string().min(1, "Please pick or add a category "),
   createdAtt: z.date(),
   isFree: z.boolean(),
 });
@@ -115,4 +113,9 @@ export const pricingFormSchema = z.object({
   priceInUsd: z.string(),
   priceInKsh: z.string(),
   description: z.string(),
+});
+
+export const ImageFormSchema = z.object({
+  title: z.string().optional(),
+  imageUrl: z.string().optional(),
 });

@@ -13,6 +13,7 @@ export interface IProfile extends Document {
     description: string;
   };
   imageUrl?: string; // Array of photo URLs
+  imageTitle?: string;
   // for Ngo
   name: string;
   physicalAddress: string;
@@ -34,6 +35,7 @@ const NgoProfileSchema = new Schema({
   description: { type: String, required: true },
   price: { type: Schema.Types.ObjectId, ref: "NgoPricing" },
   imageUrl: { type: String }, // Array of URLs to suitable
+  imageTitle: { type: String },
   // for Ngo
   name: { type: String, required: true }, //name of organization
   physicalAddress: { type: String, required: true },
@@ -50,6 +52,6 @@ const NgoProfileSchema = new Schema({
   organizer: { type: Schema.Types.ObjectId, ref: "User" }, //user that fills in the info
 });
 
-const NgoProfile = models.NgoProfile || model("NgoProfile", NgoProfileSchema);
+const NgoProfile = models?.NgoProfile || model("NgoProfile", NgoProfileSchema);
 
 export default NgoProfile;

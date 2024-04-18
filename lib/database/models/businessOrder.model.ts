@@ -48,6 +48,6 @@ const BusinessOrderSchema = new Schema({
 });
 
 const BusinessOrder =
-  models.BusinessOrder || model("BusinessOrder", BusinessOrderSchema);
+  models?.BusinessOrder || model("BusinessOrder", BusinessOrderSchema);
 
 export default BusinessOrder;

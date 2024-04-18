@@ -12,6 +12,6 @@ const BusinessSpaceSchema = new Schema({
 });
 
 const BusinessSpace =
-  models.BusinessSpace || model("BusinessSpace", BusinessSpaceSchema);
+  models?.BusinessSpace || model("BusinessSpace", BusinessSpaceSchema);
 
 export default BusinessSpace;

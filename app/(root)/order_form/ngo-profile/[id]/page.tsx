@@ -3,6 +3,7 @@ import { getBusinessAdById } from "@/lib/actions/business.actions";
 import NgoProfileForm from "@/components/shared/ReadOnly/NgoProfileForm";
 import { getNgoProfileById } from "@/lib/actions/NgoProfile.actions";
 import Checkout from "@/components/shared/checkouts/ngo_profiles/Checkout";
+import ImageNgoForm from "@/components/shared/forms/ImageForm";
 
 type UpdateNgoProfileProps = {
   params: {
@@ -32,6 +33,11 @@ const updateNgoProfile = async ({ params: { id } }: UpdateNgoProfileProps) => {
           ngoProfile={ngoProfile}
           ngoProfileId={ngoProfile._id}
         /> */}
+        <ImageNgoForm
+          userId={userId}
+          type="Create"
+          ngoProfileId={ngoProfile._id}
+        />
         <Checkout ngoProfile={ngoProfile} userId={userId} />
       </div>
     </>

@@ -11,6 +11,6 @@ const NgoSpaceSchema = new Schema({
   price: { type: String, required: true },
 });
 
-const NgoSpace = models.NgoSpace || model("NgoSpace", NgoSpaceSchema);
+const NgoSpace = models?.NgoSpace || model("NgoSpace", NgoSpaceSchema);
 
 export default NgoSpace;

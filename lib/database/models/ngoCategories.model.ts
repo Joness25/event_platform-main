@@ -10,6 +10,6 @@ const NgoCategorySchema = new Schema({
 });
 
 const NgoCategory =
-  models.NgoCategory || model("NgoCategory", NgoCategorySchema);
+  models?.NgoCategory || model("NgoCategory", NgoCategorySchema);
 
 export default NgoCategory;

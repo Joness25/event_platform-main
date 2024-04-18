@@ -35,6 +35,6 @@ const NGOSchema = new Schema({
   organizer: { type: Schema.Types.ObjectId, ref: "User" }, //user that fills in the info
 });
 
-const Ngo = models.Ngo || model("Ngo", NGOSchema);
+const Ngo = models?.Ngo || model("Ngo", NGOSchema);
 
 export default Ngo;

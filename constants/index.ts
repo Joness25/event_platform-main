@@ -37,6 +37,7 @@ export const businessFormDefaultValues = {
   website: "",
   description: "", // Array of illustration URLs
   imageUrl: "", // Array of photograph URLs
+  imageTitle: "",
   priceId: "",
   createdAtt: new Date(),
   isFree: false,
@@ -64,6 +65,7 @@ export const ngosProfileFormDefaultValues = {
   priceId: "",
   ngoId: "",
   imageUrl: "", // Array of photo URLs
+  imageTitle: "",
   createdAtt: new Date(),
   isFree: false,
   name: "", //name of organization
@@ -82,4 +84,8 @@ export const pricingDefaultValues = {
   priceInUsd: "",
   priceInKsh: "",
   description: "",
+};
+export const ImageFormDefaultValues = {
+  title: "",
+  imageUrl: "",
 };

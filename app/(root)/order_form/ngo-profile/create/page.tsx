@@ -1,5 +1,8 @@
 import { auth } from "@clerk/nextjs";
-import NgoProfileForm from "@/components/shared/forms/NgoProfileForm";
+// import NgoProfileForm from "@/components/shared/forms/NgoProfileForm";
+import NgoProfileForm from "@/components/shared/forms/NgoPofile/NgoProfileForm";
+import FormStep from "@/components/shared/stepper";
+import MultiStepForm from "@/components/shared/Stepper2";
 
 const CreateNgoProfile = () => {
   const { sessionClaims } = auth();
@@ -13,7 +16,8 @@ const CreateNgoProfile = () => {
           Create Event
         </h3>
       </section>
-
+      <FormStep />
+      <MultiStepForm />
       <div className="wrapper my-8">
         <NgoProfileForm userId={userId} type="Create" />
       </div>

@@ -48,7 +48,7 @@ const NgoProfileOrderSchema = new Schema({
 });
 
 const NgoProfileOrder =
-  models.NgoProfileOrder || model("NgoProfileOrder", NgoProfileOrderSchema);
+  models?.NgoProfileOrder || model("NgoProfileOrder", NgoProfileOrderSchema);
 
 export default NgoProfileOrder;
 // BusinessOrder
